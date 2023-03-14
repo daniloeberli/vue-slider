@@ -4,7 +4,7 @@ createApp({
     data() {
         return {
             activeImage: 0,
-
+            activeBorder: 'active',
             slides: [
                 {
                     image: 'img/01.webp',
@@ -44,7 +44,11 @@ createApp({
             if(this.activeImage < 0){
                 this.activeImage = this.slides.length - 1;
             } 
-        }
+        },
+        selectImage(index,event){
+            console.log(index);
+            this.activeImages=index;
+          }
     }
 }).mount('#app');
 
