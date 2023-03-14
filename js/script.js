@@ -59,6 +59,9 @@ createApp({
                 this.nextImage();
             }, 3000)
         },
+        stopLoop () {
+            clearInterval(this.loopTimer);
+        }
     }
 }).mount('#app');
 
