@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             activeImage: 0,
+            loopTimer: 0,
             activeBorder: 'active',
             slides: [
                 {
@@ -30,6 +31,10 @@ createApp({
             ]
         }
     },
+    //Attiviamo il loop dopo aver montato i componenti
+    mounted() {
+        this.startLoop();
+    },
     methods: {
         nextImage() {
             this.activeImage++;
@@ -48,7 +53,12 @@ createApp({
         selectImage(index,event){
             console.log(index);
             this.activeImages=index;
-          }
+        },
+        startLoop () {
+            this.loopTimer = setInterval( () => {
+                this.nextImage();
+            }, 3000)
+        },
     }
 }).mount('#app');
 
